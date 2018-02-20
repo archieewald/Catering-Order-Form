@@ -1,0 +1,36 @@
+{
+  "name": "coderslab",
+  "version": "1.0.0",
+  "description": "Gratulacje. Dostałeś swoje pierwsze zlecenie. Tworzysz aplikację dla schroniska pokazującą kotki do adopcji. Aplikacja ma pokazywać dane kotów przebywających w schronisku (płeć, wiek, imie, to czy kot lubi dzieci). Ma też umożliwiać wyszukanie kotka po imieniu, a także pokazywać które koty lubią mieszkać z małymi dziećmi. Schronisko ma przygotowaną baze danych. Po rozmowach z programistą bazy danych dowiedziałeś się że dane bazy będą przekazywane w następującym formacie: ```javascript    [  {category: \"male\", age: \"4\", likesKids: true, name: \"Fidel Catstro\"},  {category: \"male\", age: \"9\", likesKids: true, name: \"Hairy Potter\"},  {category: \"male\", age: \"2\", likesKids: false, name: \"Grumpy\"},  {category: \"female\", age: \"1\", likesKids: true, name: \"Jude Paw\"},  {category: \"female\", age: \"2\", likesKids: false, name: \"Lucifurr\"},  {category: \"female\", age: \"3\", likesKids: true, name: \"Meowly Cyrus\"} ]; ``` Jest to tablica obiektów. Każdy obiekt ma pola category, age, likesKids i name. Co więcej ważną informacją jest fakt że dane zawsze będą posortowane czyli najpierw będą koty płci męskiej a potem kotki.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "",
+  "dependencies": {
+    "react": "^15.4.0",
+    "react-dom": "^15.4.0",
+    "react-router-dom": "^4.2.2",
+    "whatwg-fetch": "^2.0.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.3.2",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-react": "^6.23.0",
+    "babel-preset-stage-2": "^6.22.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.11.1"
+  }
+}
