@@ -1,11 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Moment from 'moment';
+import momentLocalizer from 'react-widgets-moment';
+import DateTimePicker from 'react-widgets/lib/DateTimePicker';
 
 
-class App extends React.Component{
+import OrderDetails from './order_details.jsx';
+
+
+
+class MainForm extends React.Component{
+    constructor(props){
+        super(props);
+        Moment.locale('pl');
+        momentLocalizer();
+    }
     render(){
         return(
-            <PetShop cats={cats}/>
+            <div className='container'>
+                <OrderDetails/>
+            </div>
+
         )
     }
 }
@@ -13,7 +28,7 @@ class App extends React.Component{
 
 document.addEventListener('DOMContentLoaded', function(){
     ReactDOM.render(
-        <App/>,
+        <MainForm/>,
         document.getElementById('app')
     )
 });

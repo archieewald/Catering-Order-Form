@@ -1,0 +1,43 @@
+#app{
+  display: flex;
+  justify-content: center;
+}
+.container{
+  display: flex;
+  width: 60vw;
+  justify-content: center;
+  border-radius: 30px;
+  border: 1px solid grey;
+  box-shadow: 0 3px 3px 3px grey;
+  padding: 30px;
+}
+.required{
+  color: red;
+}
+.label{
+  display: block;
+  margin-top: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.descrInput{
+  margin-top: 3px;
+}
+.checkbox-container{
+  display: flex;
+  align-items: center;
+}
+.labelCheckbox{
+  font-size: 1em;
+  font-weight: bold;
+  margin-left: 10px;
+}
+.labelCheckbox > .optional,
+.special_requests .optional{
+  font-weight: normal;
+  font-style: italic;
+}
+#delivery, #pickUp{
+  width: 20px;
+  height: 20px;
+}

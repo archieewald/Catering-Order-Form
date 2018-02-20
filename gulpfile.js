@@ -3,7 +3,6 @@ const sass = require("gulp-sass");
 const plumber = require("gulp-plumber");
 const autoprefixer = require('gulp-autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
-const browserSync = require('browser-sync').create();
 const gutil = require('gulp-util');
 
 function showErrors (err) {
@@ -22,7 +21,7 @@ gulp.task("browseSync", function() {
 });
 
 gulp.task('sass', function () {
-    return gulp.src('./scss/main.scss')
+    return gulp.src('./scss/style.scss')
         .pipe(plumber({
             errorHandler : showErrors
         }))
@@ -36,7 +35,6 @@ gulp.task('sass', function () {
         }))
         .pipe(sourcemaps.write("."))
         .pipe(gulp.dest('./css'))
-        .pipe(browserSync.stream());
 });
 
 gulp.task('watch', function () {
