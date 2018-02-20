@@ -14,11 +14,21 @@ class MainForm extends React.Component{
         super(props);
         Moment.locale('pl');
         momentLocalizer();
+        this.state = {
+            form: []
+        }
+    }
+    getPersonalDetails = (x) => {
+        const formData = [x];
+        console.log(formData);
+    }
+    submitForm = (event) => {
+        //filter getPersonalDetails z znaczników dla walidacji
     }
     render(){
         return(
             <div className='container'>
-                <OrderDetails/>
+                <OrderDetails getDetails={this.getPersonalDetails}/>
             </div>
 
         )
