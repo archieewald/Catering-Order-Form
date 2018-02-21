@@ -1,3 +1,8 @@
+
+$font-path: '../node_modules/react-widgets/lib/fonts';
+$img-path:  '../node_modules/react-widgets/lib/img';
+@import '../node_modules/react-widgets/lib/scss/react-widgets';
+
 #app{
   display: flex;
   justify-content: center;
