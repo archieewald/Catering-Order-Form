@@ -9,12 +9,25 @@ export default class SoupsForm extends React.Component {
     render() {
         const soups = this.props.soups.map((element, index) => {
             return (
-                <Soup key={index} keyP={index} name={element.name} price={element.price} weight={element.weight} onBuy={this.props.onBuyCheck} onBuyQuantity={this.props.onBuyQuantity}/>
+                <Soup
+                    key={index}
+                    keyP={index}
+                    name={element.name}
+                    price={element.price}
+                    weight={element.weight}
+                    onBuy={this.props.onBuyCheck}
+                    onBuyQuantity={this.props.onBuyQuantity}
+                />
             )
         })
         return this.props.soups.length > 0 && (
             <div className='soup box'>
-                <h2 className='soup_title'>2) Wybierz zupy - <span className='optional'>minimalnie 8 porcji z rodzaju</span></h2>
+                <h2 className='soup_title'>
+                    3) Wybierz zupy -
+                    <span className='optional'>
+                        minimalnie 8 porcji z rodzaju
+                    </span>
+                </h2>
                 <hr />
                 <table className='soupTable'>
                     <thead>

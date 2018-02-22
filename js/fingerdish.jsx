@@ -29,11 +29,27 @@ export default class FingerDish extends React.Component{
     render() {
         return (
             <tr key={this.props.keyP} id={this.props.name}>
-                <td><input type='checkbox' id='bought' checked={this.state.bought} onChange={this.handleChangeCheck}/></td>
+                <td>
+                    <input
+                        type='checkbox'
+                        id='bought'
+                        checked={this.state.bought}
+                        onChange={this.handleChangeCheck}
+                    />
+                </td>
                 <td>{this.props.name}</td>
                 <td> </td>
                 <td>{this.props.price}</td>
-                <td><input style={{width:'40px'}} type='number' id={'quantity'} min={8} value={this.state.quantity} onChange={this.onChangeQuantity}/></td>
+                <td>
+                    <input
+                        style={{width:'40px'}}
+                        type='number'
+                        id={'quantity'}
+                        min={8}
+                        value={this.state.quantity}
+                        onChange={this.onChangeQuantity}
+                    />
+                </td>
             </tr>
         )
     }

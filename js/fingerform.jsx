@@ -9,12 +9,23 @@ export default class FingerForm extends React.Component {
     render() {
         const fingerfood = this.props.fingerfood.map((element, index) => {
             return (
-                <FingerDish key={index} keyP={index} name={element.name} price={element.price} weight={element.weight} onBuy={this.props.onBuyCheck} onBuyQuantity={this.props.onBuyQuantity}/>
+                <FingerDish
+                    key={index}
+                    keyP={index}
+                    name={element.name}
+                    price={element.price}
+                    weight={element.weight}
+                    onBuy={this.props.onBuyCheck}
+                    onBuyQuantity={this.props.onBuyQuantity}
+                />
             )
         })
         return this.props.fingerfood.length > 0 && (
             <div className='fingerfood box'>
-                <h2 className='fingerfood_title'>2) Wybierz swoje zakąski fingerfood - <span className='optional'>minimalnie 8 sztuk z rodzaju</span></h2>
+                <h2 className='fingerfood_title'>
+                    2) Wybierz swoje zakąski fingerfood -
+                    <span className='optional'>minimalnie 8 sztuk z rodzaju</span>
+                </h2>
                 <hr />
                 <table className='fingerTable'>
                     <thead>

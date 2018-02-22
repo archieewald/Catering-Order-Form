@@ -5,8 +5,7 @@ import OrderDetails from './order_details.jsx';
 import FingerForm from './fingerform.jsx';
 import SoupsForm from './soupsform.jsx';
 import MainDishForm from './maindishesform.jsx';
-
-
+import Resume from './resume.jsx';
 
 class MainForm extends React.Component{
     constructor(props){
@@ -15,6 +14,7 @@ class MainForm extends React.Component{
             name: '',
             phone: '',
             email: '',
+            date: null,
             time: '',
             deliveryR: '',
             address: '',
@@ -23,12 +23,14 @@ class MainForm extends React.Component{
             visEmail: 'none',
             visPhone: 'none',
             visDelivery: 'none',
-            visForm: false,
             visAddress: 'none',
             visTime: 'none',
-            visDate: 'block',
+            visDate: 'none',
             menu: {},
-            basket: []
+            basket: [],
+            personalDetails: [],
+            visForm: false,
+            resume: false
         };
         this.getMenu();
     }
@@ -54,12 +56,11 @@ class MainForm extends React.Component{
         this.setState({
             [element.id]: element.value
         });
-
     }
-    onTypeCheck = (element) => {
+    onTypeDate = ({value}) => {
         this.setState({
-            [element.id]: element.checked
-        })
+            date: value
+        });
     }
     onTypeRadio = (element) => {
         this.setState({
@@ -67,7 +68,6 @@ class MainForm extends React.Component{
         })
     }
     putToBasket = (element, bought) => {
-        console.log(bought);
         const basket = this.state.basket;
         const productCost = Number(element.price) * Number(element.quantity);
         const product = {
@@ -90,10 +90,12 @@ class MainForm extends React.Component{
         }
     }
     changeQuantity = (element, bought) => {
+
         const basket = this.state.basket;
         const productCost = Number(element.price) * Number(element.quantity);
 
         if(bought) {
+
             const newQunatity = basket.filter( existing => {
                 return existing.name === element.name
             });
@@ -111,23 +113,32 @@ class MainForm extends React.Component{
             })
         }
     }
+    personalDetailsValidation = (event) => {
+        event.preventDefault();
 
-    personalDetailsValidation(){
         this.setState({
-            visForm: "none",
             visPhone: "none",
             visName: "none",
             visEmail: "none",
+            visDate: 'none',
             visTime: 'none',
             visDelivery: 'none',
-            visAddress: 'none'
+            visAddress: 'none',
         });
+
         let isEmailValid = this.state.email.indexOf('@') > -1;
         let isNameValid = this.state.name !== "";
         let isPhoneValid = this.state.phone !== "";
-        let isAddressValid = this.state.address !== "";
+        let isDateValid = this.state.date !== null;
         let isTimeValid = this.state.time !== "";
         let isDeliveryValid = this.state.deliveryR !== '';
+        let isAddressValid;
+
+        if (this.state.deliveryR === 'pickUp'){
+            isAddressValid = true;
+        } else if (this.state.address !== "" && this.state.deliveryR === 'delivery'){
+            isAddressValid = true;
+        }
 
         if(!isEmailValid){
             this.setState({
@@ -144,6 +155,11 @@ class MainForm extends React.Component{
                 visPhone: "block",
             })
         }
+        if (!isDateValid){
+            this.setState({
+                visDate: "block",
+            })
+        }
         if (!isTimeValid){
             this.setState({
                 visTime: "block",
@@ -154,50 +170,110 @@ class MainForm extends React.Component{
                 visDelivery: "block",
             })
         }
-        if (!isAddressValid){
+        if (!isAddressValid && this.state.deliveryR === 'delivery'){
             this.setState({
                 visAddress: "block",
             })
         }
 
-        if(isPhoneValid && isNameValid && isEmailValid && isAddressValid && isTimeValid && isDeliveryValid){
+        if(isPhoneValid && isNameValid && isEmailValid && isAddressValid && isDateValid && isTimeValid && isDeliveryValid){
             this.setState({
                 visForm: true
+            }, () => {
+                this.submitForm();
             })
-
         }
-
     }
-    submitForm = (event) => {
-        event.preventDefault();
-        //filter getPersonalDetails z znaczników dla walidacji
-        //filter menu;
-        this.personalDetailsValidation();
+
+    submitForm = () => {
+
+        let personalDetails = {};
+
+        personalDetails = {
+            name: this.state.name,
+            phone: this.state.phone,
+            email: this.state.email,
+            date: this.state.date.toLocaleDateString(),
+            time: this.state.time,
+            delivery: this.state.deliveryR,
+            address: this.state.address,
+            request: this.state.request
+        };
+
+        this.setState({
+            resume: true,
+            personalDetails: personalDetails
+        });
     }
     render(){
-        console.log('basketOverall');
-        console.log(this.state.basket);
         return (
-            <form className='form'>
-                <div className='container'>
-                    <OrderDetails name={this.state.name} phone={this.state.phone} email={this.state.email} deliveryR={this.state.deliveryR}
-                                  address={this.state.address} time={this.props.time} request={this.state.request} visName={this.state.visName}
-                                  visEmail={this.state.visEmail} visPhone={this.state.visPhone} visDelivery={this.state.visDelivery} visAddress={this.state.visAddress}
-                                  visTime={this.state.visTime} onChangeText={this.onTypeText} onChangeCheck={this.onTypeCheck} onChangeRadio={this.onTypeRadio}
-                                  onSubmit={this.submitForm}
-                    />
+            <div className='app-box'>
+                <form className='form'>
+                    <div className='container'>
+                        <OrderDetails
+                            name={this.state.name}
+                            phone={this.state.phone}
+                            email={this.state.email}
+                            date={this.state.date}
+                            deliveryR={this.state.deliveryR}
+                            address={this.state.address}
+                            time={this.state.time}
+                            request={this.state.request}
+                            visName={this.state.visName}
+                            visEmail={this.state.visEmail}
+                            visPhone={this.state.visPhone}
+                            visDelivery={this.state.visDelivery}
+                            visAddress={this.state.visAddress}
+                            visDate={this.state.visDate}
+                            visTime={this.state.visTime}
+                            onChangeText={this.onTypeText}
+                            onChangeDate={this.onTypeDate}
+                            onChangeRadio={this.onTypeRadio}
+                        />
+                    </div>
+                    <div className='container'>
+                        <FingerForm
+                            fingerfood={this.state.menu.Fingerfood ? this.state.menu.Fingerfood : []}
+                            onBuyCheck={this.putToBasket}
+                            onBuyQuantity={this.changeQuantity}
+                        />
+                    </div>
+                    <div className='container'>
+                        <SoupsForm
+                            soups={this.state.menu.Zupy ? this.state.menu.Zupy : []}
+                            onBuyCheck={this.putToBasket}
+                            onBuyQuantity={this.changeQuantity}
+                        />
+                    </div>
+                    <div className='container'>
+                        <MainDishForm
+                            mains={this.state.menu.Dania_hot ? this.state.menu.Dania_hot : []}
+                            onBuyCheck={this.putToBasket}
+                            onBuyQuantity={this.changeQuantity}
+                        />
+                    </div>
+                    <div className='container submit-box'>
+                        <div className='submitButton'>
+                            <input
+                                type='submit'
+                                style={{display: 'block'}}
+                                value='Zamawiam'
+                                onClick={this.personalDetailsValidation}
+                            />
+                        </div>
+                    </div>
+                </form>
+                <div className='resume' style={{visibility: this.state.visForm ? 'visible' : 'hidden' }}>
+                    {this.state.visForm ? (
+                        <Resume
+                            resume={this.state.resume}
+                            basket={this.state.basket}
+                            personalDetails={this.state.personalDetails}
+                        />
+                    ) : <span> Loading </span>}
                 </div>
-                <div className='container'>
-                    <FingerForm fingerfood={this.state.menu.Fingerfood ? this.state.menu.Fingerfood : []} onBuyCheck={this.putToBasket} onBuyQuantity={this.changeQuantity}/>
-                </div>
-                <div className='container'>
-                    <SoupsForm soups={this.state.menu.Zupy ? this.state.menu.Zupy : []} onBuyCheck={this.putToBasket} onBuyQuantity={this.changeQuantity}/>
-                </div>
-                <div className='container'>
-                    <MainDishForm mains={this.state.menu.Dania_hot ? this.state.menu.Dania_hot : []} onBuyCheck={this.putToBasket} onBuyQuantity={this.changeQuantity}/>
-                </div>
-                <input type='submit' value='Zamawiam' onClick={this.submitForm}/>
-            </form>
+            </div>
+
         )
     }
 }
