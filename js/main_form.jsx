@@ -1,22 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Moment from 'moment';
-import momentLocalizer from 'react-widgets-moment';
-import DateTimePicker from 'react-widgets/lib/DateTimePicker';
-import simpleNumberLocalizer from 'react-widgets-simple-number';
-import NumberPicker from 'react-widgets/lib/NumberPicker';
-
 
 import OrderDetails from './order_details.jsx';
+import FingerForm from './fingerform.jsx';
+import SoupsForm from './soupsform.jsx';
+import MainDishForm from './maindishesform.jsx';
 
 
 
 class MainForm extends React.Component{
     constructor(props){
         super(props);
-        Moment.locale('pl');
-        momentLocalizer();
-        simpleNumberLocalizer();
         this.state = {
             name: '',
             phone: '',
@@ -32,8 +26,29 @@ class MainForm extends React.Component{
             visForm: false,
             visAddress: 'none',
             visTime: 'none',
-            visDate: 'block'
-        }
+            visDate: 'block',
+            menu: {},
+            basket: []
+        };
+        this.getMenu();
+    }
+    getMenu(){
+        fetch('http://localhost:3000/db')
+            .then(response => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('E.R.R.O.R.');
+                }
+            })
+            .then(data => {
+                this.setState({
+                   menu:  data
+                })
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
     onTypeText = (element) => {
         this.setState({
@@ -51,6 +66,52 @@ class MainForm extends React.Component{
             deliveryR: element.value
         })
     }
+    putToBasket = (element, bought) => {
+        console.log(bought);
+        const basket = this.state.basket;
+        const productCost = Number(element.price) * Number(element.quantity);
+        const product = {
+            name: element.name,
+            quantity: element.quantity,
+            price: element.price,
+            cost: productCost
+        };
+        if(bought){
+            this.setState({
+                basket: [...this.state.basket, product]
+            })
+        } else if (bought === false){
+            const newBasket = basket.filter( existing => {
+                return existing.name !== element.name
+            });
+            this.setState({
+                basket: newBasket
+            })
+        }
+    }
+    changeQuantity = (element, bought) => {
+        const basket = this.state.basket;
+        const productCost = Number(element.price) * Number(element.quantity);
+
+        if(bought) {
+            const newQunatity = basket.filter( existing => {
+                return existing.name === element.name
+            });
+
+            newQunatity[0].quantity = element.quantity;
+            newQunatity[0].cost = productCost;
+
+            const newBasket = basket.filter( existing => {
+                return existing.name !== element.name
+            });
+
+            newBasket.push(newQunatity[0]);
+            this.setState({
+                basket: newBasket
+            })
+        }
+    }
+
     personalDetailsValidation(){
         this.setState({
             visForm: "none",
@@ -110,21 +171,33 @@ class MainForm extends React.Component{
     submitForm = (event) => {
         event.preventDefault();
         //filter getPersonalDetails z znaczników dla walidacji
+        //filter menu;
         this.personalDetailsValidation();
     }
     render(){
-        return(
+        console.log('basketOverall');
+        console.log(this.state.basket);
+        return (
             <form className='form'>
                 <div className='container'>
                     <OrderDetails name={this.state.name} phone={this.state.phone} email={this.state.email} deliveryR={this.state.deliveryR}
                                   address={this.state.address} time={this.props.time} request={this.state.request} visName={this.state.visName}
                                   visEmail={this.state.visEmail} visPhone={this.state.visPhone} visDelivery={this.state.visDelivery} visAddress={this.state.visAddress}
                                   visTime={this.state.visTime} onChangeText={this.onTypeText} onChangeCheck={this.onTypeCheck} onChangeRadio={this.onTypeRadio}
-                                  onSubmit={this.submitForm}/>
+                                  onSubmit={this.submitForm}
+                    />
+                </div>
+                <div className='container'>
+                    <FingerForm fingerfood={this.state.menu.Fingerfood ? this.state.menu.Fingerfood : []} onBuyCheck={this.putToBasket} onBuyQuantity={this.changeQuantity}/>
+                </div>
+                <div className='container'>
+                    <SoupsForm soups={this.state.menu.Zupy ? this.state.menu.Zupy : []} onBuyCheck={this.putToBasket} onBuyQuantity={this.changeQuantity}/>
+                </div>
+                <div className='container'>
+                    <MainDishForm mains={this.state.menu.Dania_hot ? this.state.menu.Dania_hot : []} onBuyCheck={this.putToBasket} onBuyQuantity={this.changeQuantity}/>
                 </div>
                 <input type='submit' value='Zamawiam' onClick={this.submitForm}/>
             </form>
-
         )
     }
 }

@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import Moment from 'moment';
 import momentLocalizer from 'react-widgets-moment';
 import DateTimePicker from 'react-widgets/lib/DateTimePicker';
-import simpleNumberLocalizer from 'react-widgets-simple-number';
-import NumberPicker from 'react-widgets/lib/NumberPicker';
 
 
 
@@ -13,7 +11,6 @@ export default class OrderDetails extends React.Component{
         super(props);
         Moment.locale('pl');
         momentLocalizer();
-        simpleNumberLocalizer();
     }
     handleChangeText= (event) => {
         this.props.onChangeText(event.target);
@@ -26,7 +23,7 @@ export default class OrderDetails extends React.Component{
     }
     render(){
         return(
-            <div className='order_details'>
+            <div className='order_details box'>
                 <h2 className='order_details_title'>1) Dane kontaktowe, szczegóły dostawy oraz uwagi</h2>
                 <hr />
                  {/*okienko walidacji wyskakuje dla wszystkich formularzy*/}

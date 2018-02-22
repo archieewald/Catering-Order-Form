@@ -1,0 +1,421 @@
+{
+  "Fingerfood": [
+    {
+      "name": "Szachownica z kawiorem",
+      "price": 3.5
+    },
+    {
+      "name": "Paluszki grissini otulone szynką podsuszaną",
+      "price": 4
+    },
+    {
+      "name": "Przekładaniec z polędwiczki z orzechem włoskim",
+      "price": 6.5
+    },
+    {
+      "name": "Ptysie z puszystym serkiem w trzech kolorach",
+      "price": 4
+    },
+    {
+      "name": "Muszla z kozim serem i pomidorkiem",
+      "price": 4.5
+    },
+    {
+      "name": "Nachos z gucamole i wędzonym łososiem",
+      "price": 6
+    },
+    {
+      "name": "Galantyna w tajskim stylu z krabem i trawą cytrynową",
+      "price": 4.5
+    },
+    {
+      "name": "Galantyna w włoskim stylu z orzechami i serem",
+      "price": 4.5
+    },
+    {
+      "name": "Pikantna galantyna z zielonym pieprzem",
+      "price": 4.5
+    },
+    {
+      "name": "Galantyna wiejska z papryką otulona boczkiem",
+      "price": 4.5
+    },
+    {
+      "name": "Tost z jajkiem przepiórczym i bekonem",
+      "price": 4.5
+    },
+    {
+      "name": "Róża z łososia z kaparami",
+      "price": 6
+    },
+    {
+      "name": "Szaszłyk z krewetką z warzywami i octem balsamico",
+      "price": 5
+    },
+    {
+      "name": "Patyk ptysiowy z serkiem mascarpone i konfiturą z borówek (truskawek, jagód)",
+      "price": 3.5
+    },
+    {
+      "name": "Vol-au-vent",
+      "price": 4
+    },
+    {
+      "name": "Pomidorki coctailowe z mozzarellą i bazylią ",
+      "price": 4
+    },
+    {
+      "name": "Roladka z bakłażana i cukini z serem feta",
+      "price": 4.5
+    },
+    {
+      "name": "Oscypek z cykorią i sosem żurawinowym",
+      "price": 6
+    },
+    {
+      "name": "Ślimak z ciasta francuskiego ze szpinakiem",
+      "price": 3.5
+    },
+    {
+      "name": "Szpadka z koreczkiem śledziowym z warzywami na toście",
+      "price": 4
+    },
+    {
+      "name": "Boczek wędzony zawijany z morelą",
+      "price": 3.5
+    },
+    {
+      "name": "Boczek wędzony zawijany ze śliwką",
+      "price": 3.5
+    },
+    {
+      "name": "Delicja z drobiu ze szpinakiem na grzance",
+      "price": 4.5
+    },
+    {
+      "name": "Melon zawijany w szynce podsuszanej",
+      "price": 4
+    }
+  ],
+  "Zupy": [
+    {
+      "name": "Zupa węgierska",
+      "weight": "250ml",
+      "price": 7
+    },
+    {
+      "name": "Zupa ze szlachetnych grzybów z łezką śmietany",
+      "weight": "250ml",
+      "price": 7
+    },
+    {
+      "name": "Krem z pieczonej dyni (dostępne jesienną porą)",
+      "weight": "250ml",
+      "price": 6
+    },
+    {
+      "name": "Zupa grecka z mięsem i cytrynową nutką",
+      "weight": "250ml",
+      "price": 7
+    },
+    {
+      "name": "Zupa szpinakowa z grzankami",
+      "weight": "250ml",
+      "price": 6
+    },
+    {
+      "name": "Grochówka",
+      "weight": "250ml",
+      "price": 4
+    },
+    {
+      "name": "Zupa gulaszowa",
+      "weight": "250ml",
+      "price": 7
+    },
+    {
+      "name": "Zupa serowa z szynką i pomidorem",
+      "weight": "250ml",
+      "price": 7
+    },
+    {
+      "name": "Żurek z jajkiem",
+      "weight": "250ml",
+      "price": 6
+    },
+    {
+      "name": "Krem pomidorowy z bazylią i oliwą",
+      "weight": "250ml",
+      "price": 6
+    },
+    {
+      "name": "Barszcz z pasztecikiem",
+      "weight": "250ml",
+      "price": 6
+    },
+    {
+      "name": "Zupa szparagowa z grzankami (dostępna od kwietnia do czerwca)",
+      "weight": "250ml",
+      "price": 6
+    },
+    {
+      "name": "Zupa tajska",
+      "weight": "250ml",
+      "price": 7
+    },
+    {
+      "name": "Zupa neapolitańska",
+      "weight": "250ml",
+      "price": 8
+    },
+    {
+      "name": "Krem z marchewki z mlekiem kokosowym i imbirem",
+      "weight": "250ml",
+      "price": 7
+    },
+    {
+      "name": "Krem z pieczonego buraka z serem kozim",
+      "weight": "250ml",
+      "price": 7
+    },
+    {
+      "name": "Krem z pora z chipsami z bekonu",
+      "weight": "250ml",
+      "price": 6
+    },
+    {
+      "name": "Zupa ziemniaczana z pestkami dyni",
+      "weight": "250ml",
+      "price": 5
+    },
+    {
+      "name": "Krem z selera z chipsami z bekonu",
+      "weight": "250ml",
+      "price": 6
+    },
+    {
+      "name": "Zupa z małży z paluszkami krabowymi i jajkiem",
+      "weight": "250ml",
+      "price": 9
+    }
+  ],
+  "Dania_hot": [
+    {
+      "name": "Rolowane udko z kurczaka z suszonym pomidorem w sosie gorgonzola",
+      "weight": "180g",
+      "price": 14
+    },
+    {
+      "name": "Paella z filecikami drobiowymi i warzywami",
+      "weight": "300g",
+      "price": 16
+    },
+    {
+      "name": "Wołowina duszona czerwonym winie",
+      "weight": "100g",
+      "price": 10
+    },
+    {
+      "name": "Polędwiczki w sosie gorgonzola",
+      "weight": "180g",
+      "price": 14
+    },
+    {
+      "name": "Polędwiczki w sosie kurkowym",
+      "weight": "180g",
+      "price": 15
+    },
+    {
+      "name": "Polędwiczki w sosie pieprzowym z borowikami",
+      "weight": "180g",
+      "price": 15
+    },
+    {
+      "name": "Medalion z indyka zapieczony w sosie z warzyw na białym winie",
+      "weight": "180g/230g",
+      "price": 13
+    },
+    {
+      "name": "Policzki wołowe duszone w winie",
+      "weight": "150g/200g",
+      "price": 14
+    },
+    {
+      "name": "Bigos bankietowy z grzybkami",
+      "weight": "100g",
+      "price": 2.5
+    },
+    {
+      "name": "Beef Stroganow",
+      "weight": "100g",
+      "price": 12
+    },
+    {
+      "name": "Golonka faszerowana mięsem",
+      "weight": "100g",
+      "price": 5
+    },
+    {
+      "name": "Golonka gotowana",
+      "weight": "100g",
+      "price": 3
+    },
+    {
+      "name": "Golonka po bawarsku",
+      "weight": "100g",
+      "price": 4
+    },
+    {
+      "name": "Kuleczki wołowe w aromatycznym ostrym sosie",
+      "weight": "100g",
+      "price": 6
+    },
+    {
+      "name": "Kurczak w warzywnym sosie curry",
+      "weight": "100g",
+      "price": 6.5
+    },
+    {
+      "name": "Kąski drobiowe w owocowym sosie curry",
+      "weight": "100g",
+      "price": 7
+    },
+    {
+      "name": "Leczo warzywne z kawałkami dorsza",
+      "weight": "100g",
+      "price": 7.5
+    },
+    {
+      "name": "Paluszki drobiowe z kurkami",
+      "weight": "100g",
+      "price": 8
+    },
+    {
+      "name": "Polędwiczki wieprzowe w pędach bambusa",
+      "weight": "100g",
+      "price": 8
+    },
+    {
+      "name": "Ragout cielęce z borowikami",
+      "weight": "100g",
+      "price": 12
+    },
+    {
+      "name": "Strogo z kurczaka",
+      "weight": "100g",
+      "price": 7
+    },
+    {
+      "name": "Wieprzowina słodko – kwaśna",
+      "weight": "100g",
+      "price": 7
+    },
+    {
+      "name": "Wołowina po „Meksykańsku”",
+      "weight": "100g",
+      "price": 7
+    },
+    {
+      "name": "Zraz drobiowy",
+      "weight": "110g",
+      "price": 12
+    },
+    {
+      "name": "Zraz  wieprzowy",
+      "weight": "110g",
+      "price": 12
+    },
+    {
+      "name": "Zraz wołowy",
+      "weight": "110g",
+      "price": 15
+    },
+    {
+      "name": "Szaszłyk wieprzowy",
+      "weight": "160g",
+      "price": 12
+    },
+    {
+      "name": "Szaszłyk drobiowy",
+      "weight": "160g",
+      "price": 12
+    },
+    {
+      "name": "Schab pieczony w sosie",
+      "weight": "100g",
+      "price": 12
+    },
+    {
+      "name": "Fileciki drobiowe w sosie śmietanowym",
+      "weight": "180g",
+      "price": 12
+    },
+    {
+      "name": "Fileciki drobiowe w sosie gorgonzola",
+      "weight": "180g",
+      "price": 13
+    },
+    {
+      "name": "Fileciki z polędwicy wieprzowej w sosie grzybowym",
+      "weight": "180g",
+      "price": 15
+    },
+    {
+      "name": "De vollaile",
+      "weight": "150g",
+      "price": 13
+    }
+  ],
+  "Dania_king": [
+    {
+      "name": "Indyk w całości na ciepło nadziewany",
+      "weight": "1kg",
+      "price": 69
+    },
+    {
+      "name": "Indyk w całości z owocami",
+      "weight": "1kg",
+      "price": 69
+    },
+    {
+      "name": "Kurczak faszerowany mięsem na ciepło",
+      "weight": "1kg",
+      "price": 60
+    },
+    {
+      "name": "Kurczak z owocami w całości",
+      "weight": "1kg",
+      "price": 60
+    },
+    {
+      "name": "Prosię nadziewane kaszą na ciepło",
+      "weight": "1kg",
+      "price": 70
+    },
+    {
+      "name": "Prosię nadziewane masą mięsną garni na zimno",
+      "weight": "1kg",
+      "price": 70
+    },
+    {
+      "name": "Prosię nadziewane masą mięsną na ciepło",
+      "weight": "1kg",
+      "price": 70
+    },
+    {
+      "name": "Schab pieczony w otoczce z kaszy",
+      "weight": "1kg",
+      "price": 65
+    },
+    {
+      "name": "Szynka w ziołach prowansalskich pieczona w całości ",
+      "weight": "1kg",
+      "price": 69
+    },
+    {
+      "name": "Szynka zapiekana w cieście chlebowym",
+      "weight": "1kg",
+      "price": 69
+    }
+  ]
+}
