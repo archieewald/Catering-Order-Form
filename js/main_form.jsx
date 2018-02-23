@@ -26,6 +26,7 @@ class MainForm extends React.Component{
             visAddress: 'none',
             visTime: 'none',
             visDate: 'none',
+            visBasket: 'none',
             menu: {},
             basket: [],
             personalDetails: [],
@@ -133,6 +134,7 @@ class MainForm extends React.Component{
         let isTimeValid = this.state.time !== "";
         let isDeliveryValid = this.state.deliveryR !== '';
         let isAddressValid;
+        let isBasketFilled = this.state.basket.length > 0;
 
         if (this.state.deliveryR === 'pickUp'){
             isAddressValid = true;
@@ -175,8 +177,13 @@ class MainForm extends React.Component{
                 visAddress: "block",
             })
         }
+        if(!isBasketFilled){
+            this.setState({
+                visDelivery: "block",
+            })
+        }
 
-        if(isPhoneValid && isNameValid && isEmailValid && isAddressValid && isDateValid && isTimeValid && isDeliveryValid){
+        if(isPhoneValid && isNameValid && isEmailValid && isAddressValid && isDateValid && isTimeValid && isDeliveryValid && isBasketFilled){
             this.setState({
                 visForm: true
             }, () => {
@@ -253,7 +260,7 @@ class MainForm extends React.Component{
                         />
                     </div>
                     <div className='container submit-box'>
-                        <div className='submitButton'>
+                        <div className='submitButton'>Zamawiam
                             <input
                                 type='submit'
                                 style={{display: 'block'}}
@@ -263,17 +270,24 @@ class MainForm extends React.Component{
                         </div>
                     </div>
                 </form>
-                <div className='resume' style={{visibility: this.state.visForm ? 'visible' : 'hidden' }}>
-                    {this.state.visForm ? (
-                        <Resume
-                            resume={this.state.resume}
-                            basket={this.state.basket}
-                            personalDetails={this.state.personalDetails}
-                        />
-                    ) : <span> Loading </span>}
-                </div>
+                {this.state.basket.length > 0 ? (
+                    <div className='resume' style={{visibility: this.state.visForm ? 'visible' : 'hidden' }}>
+                        {this.state.visForm ? (
+                            <Resume
+                                resume={this.state.resume}
+                                basket={this.state.basket}
+                                personalDetails={this.state.personalDetails}
+                            />
+                        ) : <span> Loading </span>}
+                    </div>
+                ) : (
+                    <div className='basketError'>
+                        <div>
+                            <h2>Nie wybrano żadnych potraw</h2>
+                        </div>
+                    </div>
+                )}
             </div>
-
         )
     }
 }

@@ -1,8 +1,16 @@
-
 $font-path: '../node_modules/react-widgets/lib/fonts';
 $img-path:  '../node_modules/react-widgets/lib/img';
 @import '../node_modules/react-widgets/lib/scss/react-widgets';
 
+//General
+*{
+  box-sizing: border-box;
+}
+body {
+  margin:0;
+  font-family: "Nunito Sans", sans-serif;
+  position: relative;
+}
 
 .app-box{
   display: flex;
@@ -10,20 +18,189 @@ $img-path:  '../node_modules/react-widgets/lib/img';
   align-items: center;
   position: relative;
   width: 100%;
+  background-image: url("../images/spices.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
-.resume{
+
+.container{
+  display: flex;
+  width: 60vw;
+  justify-content: center;
+  border-radius: 30px;
+  border: 1px solid grey;
+  box-shadow: 0 3px 3px 3px grey;
+  padding: 30px;
+  margin: 50px 0;
+  background: #f4f4f4;
+}
+.box{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.box > h2{
+  width: 100%;
+  text-align: center;
+  background: #d7cec7;
+  color: #565656;
+  text-shadow: 0.5px 0.5px #f4f4f4;
+  border-radius: 5px;
+}
+
+input[type=checkbox]{
+  width: 20px;
+  height: 20px;
+}
+.required{
+  color: #B2370A;
+}
+
+.optional {
+  font-weight: lighter;
+  font-style: italic;
+  font-size: 0.8em;
+}
+ table{
+   border-collapse: collapse;
+ }
+//Personal Details
+
+.order_details{
+  align-items: left;
+}
+.order_details > div{
+  width: 80%;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed #d7cec7;
+}
+.order_details > div:last-child{
+  border-bottom: none;
+}
+.order_details > div > input{
+  width: 50%;
+  height: 30px;
+  font-size: 16px;
+  padding-left: 5px;
+}
+.order_details textarea{
+  font-size: 16px;
+  padding-left: 5px;
+}
+
+.order_details span{
+  font-style: italic;
+}
+
+.label{
+  display: block;
+  margin-top: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #76323f;
+}
+.descrInput{
+  margin: 3px 0 0 0;
+  font-style: italic;
+  font-weight: lighter;
+  color: #565656;
+}
+.checkbox-container{
+  display: flex;
+  align-items: center;
+}
+.labelCheckbox{
+  font-size: 1em;
+  font-weight: bold;
+  margin-left: 10px;
+  color: #76323f;
+}
+.labelCheckbox > .optional,
+.special_requests .optional,
+.fingerfood .optional{
+  font-weight: normal;
+  font-style: italic;
+}
+#delivery, #pickUp{
+  width: 20px;
+  height: 20px;
+}
+.textarea_form{
+  width: 80%;
+  height: 120px;
+  border-radius: 5px;
+  padding: 5px;
+}
+.submitButton{
+  width: 50%;
+  height: 50px;
+  background: #c09f80;
+  border-radius: 20px;
+  font-size: 25px;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0 0 1px 1px grey;
+  text-align: center;
+  line-height: 50px;
+  position: relative;
+  color: #f4f4f4;
+
+}
+
+.submitButton:hover{
+  box-shadow: 0 0 2px 2px #76323f ;
+}
+.submitButton:active{
+  box-shadow: inset 0 0 1px 1px #fff ;
+}
+input[type=submit]{
+  /* change these properties to whatever you want */
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+//Resume & Basket Error
+.resume,
+.basketError{
+  $color1: rgba(black, 0.86);
+  $color2: rgba(black, 0.9);
   width: 100%;
   height: 100vh;
   position: fixed;
-  background-color: rgba(255,255,255, 0.5);
+  background: linear-gradient(
+                  -45deg,
+                  $color1 0%,  $color2 25%,
+                  $color2 25%, $color1 50%,
+                  $color1 50%, $color2 75%,
+                  $color2 75%, $color1 100%
+  );
+  background-size: 8px 8px, cover;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1;
 }
-.resume-title{
-  display: flex;
-  flex-grow: 1;
+.basketError{
+  height: 5vh;
+}
+.basketError div {
+  width: 60%;
+  height:100%;
+  border-radius: 1px;
+  background: rgba(#76323F, 0.8);
+}
+.basketError h2{
+  text-align: center;
+  color:#F4F4F4;
+  text-transform: uppercase;
+  margin: 0;
 }
 .resume-container {
   width: 80%;
@@ -44,91 +221,106 @@ $img-path:  '../node_modules/react-widgets/lib/img';
   flex-grow: 1;
   width: 100%;
 }
+.resume-title{
+  text-transform: uppercase;
+  font-weight: bold;
+  text-shadow: 1px 1px;
+  background-color: #d7cec7;
+  width: 100%;
+  text-align: center;
+  border-radius: 3px;
+  color: #76323f;
+}
 .resume-headers{
   display: flex;
   flex-grow: 1;
+  width: 100%;
+  border-bottom: 1px dashed #565656;
 
 }
-.resume-headers + hr{
-  height: 10px;
-}
-.header-left{
-  display: flex;
-  justify-content: flex-start;
-}
+.header-left,
 .header-right{
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  width: 60%;
+  color: #565656;
 }
+.header-left{
+  width: 40%;
+}
+
 .resume-details{
   display: flex;
-  flex-grow: 2;
   flex-direction: column;
-  justify-content: flex-start;
+  width: 40%;
+  align-items: flex-start;
+}
+.resume-details p{
+  margin: 5px;
+  color: #76323f ;
+}
+
+.resume-details strong{
+  color: #565656;
 }
 .resume-menu{
   display: flex;
   flex-direction: column;
-  flex-grow: 3;
   justify-content: flex-end;
+  width: 60%;
 }
-.container{
-  display: flex;
-  width: 60vw;
-  justify-content: center;
-  border-radius: 30px;
-  border: 1px solid grey;
-  box-shadow: 0 3px 3px 3px grey;
-  padding: 30px;
-  margin: 50px 0;
+.menu-table thead{
+  color: #565656;
 }
-.box{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.menu-table tbody{
+  color: #76323f;
 }
-.order_details{
-  align-items: left;
+.menu-table tfoot{
+  color: #565656;
+  font-weight: 700;
 }
-.required{
-  color: red;
+.menu-table thead tr td:last-child,
+.menu-table tbody tr td:last-child{
+  border-left: 1px solid #ddd;
 }
-.label{
-  display: block;
-  margin-top: 20px;
-  font-size: 1.2em;
-  font-weight: bold;
+.menu-table th,
+.menu-table td{
+  border-bottom: 1px solid #ddd;
+  min-width: 40px;
+  padding: 3px;
 }
-.descrInput{
-  margin-top: 3px;
+.menu-table tbody tr:last-child td{
+  border-bottom: 1px solid grey;
 }
-.checkbox-container{
-  display: flex;
-  align-items: center;
+.menu-table tfoot td{
+  border-top: none;
 }
-.labelCheckbox{
-  font-size: 1em;
-  font-weight: bold;
-  margin-left: 10px;
+.menu-table tr td:first-child{
+  text-align: left;
 }
-.labelCheckbox > .optional,
-.special_requests .optional,
-.fingerfood .optional{
-  font-weight: normal;
-  font-style: italic;
+.menu-table tr td:last-child,
+.menu-table tr td:nth-child(2){
+  text-align: right;
 }
-#delivery, #pickUp{
-  width: 20px;
-  height: 20px;
-}
-.textarea_form{
-  width: 80%;
-  height: 120px;
-  border-radius: 5px;
-  padding: 5px;
+.menu-table tr td:nth-child(2){
+  padding-right: 7px;
 }
 
+.resumeSend{
+  width: 100%;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.send{
+  width: 150px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: #c09f80;
+  text-transform: uppercase;
+  color: #f4f4f4;
+}
 //food tables
 .mainTable th,
 .soupTable th,
@@ -145,20 +337,96 @@ $img-path:  '../node_modules/react-widgets/lib/img';
 .mainTable tr:hover td,
 .soupTable tr:hover td,
 .fingerTable tr:hover td{
-  background-color: rgba(168,168,168,0.5);
+  $color1: rgba(#c09f80, 0.86);
+  $color2: rgba(#c09f80, 0.9);
+  background: linear-gradient(
+                  -45deg,
+                  $color1 0%,  $color2 25%,
+                  $color2 25%, $color1 50%,
+                  $color1 50%, $color2 75%,
+                  $color2 75%, $color1 100%
+  );
+  background-size: 8px 8px, cover;
 }
 
-//resume table
-.menu-table th,
-.menu table td{
-  border-bottom: 1px solid #ddd;
-  min-width: 40px;
-  padding: 3px;
+//Animation logo
+.animation{
+  $color1: rgba(black, 0.86);
+  $color2: rgba(black, 0.9);
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  background: linear-gradient(
+                  -45deg,
+                  $color1 0%,  $color2 25%,
+                  $color2 25%, $color1 50%,
+                  $color1 50%, $color2 75%,
+                  $color2 75%, $color1 100%
+  );
+  background-size: 8px 8px, cover;
+  animation: animationOut 3s 12s forwards ease-in-out;
 }
-.menu-table tr td:first-child{
-  text-align: left;
+
+.logo{
+  width: 100%;
+  height: 0;
+  position: absolute;
+  z-index: 1;
+  background-color: white;
+  top: 35vh;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: open 3s forwards ease-in-out,
+        allOut 3s 8s forwards ease-in-out;
 }
-.menu-table tr td:last-child,
-.menu-table tr td:nth-child(2){
-  text-align: right;
+img {
+  height: 30vh;
+  opacity: 0;
+  transform: scale(0);
+  animation: imgIn 3s 3s forwards ease-in-out;
+}
+@keyframes open {
+  0%{
+    height: 0;
+  }
+  100%{
+    height: 50vh;
+  }
+}
+
+@keyframes imgIn {
+  0%{
+    opacity: 0;
+    transform: scale(0);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1);
+  }
+
+}
+
+@keyframes allOut {
+  0%{
+    left: 0;
+  }
+  100% {
+    left: 100%;
+    display: none;
+  }
+
+}
+@keyframes animationOut {
+  0%{
+    transform: scaleY(1);
+  }
+  100%{
+    transform: scaleY(0);
+    display: none;
+  }
 }

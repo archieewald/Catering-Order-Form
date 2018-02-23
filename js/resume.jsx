@@ -25,65 +25,48 @@ export default class Resume extends React.Component{
                 </h2>
                 <div className='resume-headers'>
                     <div className='header-left'>
-                        <h3 className='resume-title'>
+                        <h3 className='resume-details-title'>
                             Dane zamawiającego:
                         </h3>
                     </div>
                     <div className='header-right'>
                         <h3 className='resume-menu-title'>
-                            Państwa Menu
+                            Zamówione Menu:
                         </h3>
                     </div>
                 </div>
-                <hr />
-                 <div className='resume-content'>
+                <div className='resume-content'>
                     <div className='resume-details'>
                         <p className='name'>
-                            <strong>
-                                Zamawiający:
-                            </strong>
+                            <strong>Zamawiający:  </strong>
                             {this.props.personalDetails.name}
                         </p>
                         <p className='email'>
-                            <strong>
-                                Email:
-                            </strong>
+                            <strong>Email:  </strong>
                             {this.props.personalDetails.email}
                         </p>
                         <p className='phone'>
-                            <strong>
-                                Numer telefonu:
-                            </strong>
+                            <strong>Numer telefonu:  </strong>
                             {this.props.personalDetails.phone}
                         </p>
                         <p className='date'>
-                            <strong>
-                                Data realizacji:
-                            </strong>
+                            <strong>Data realizacji:  </strong>
                             {this.props.personalDetails.date}
                         </p>
                         <p className='time'>
-                            <strong>
-                                Godzina realizacji:
-                            </strong>
+                            <strong>Godzina realizacji:  </strong>
                             {this.props.personalDetails.time}
                         </p>
                         <p className='delivery'>
-                            <strong>
-                                Sposób dostawy:
-                            </strong>
+                            <strong>Sposób dostawy:  </strong>
                             {this.props.personalDetails.delivery === 'delivery' ? 'Dowóz pod wskazany adres' : 'Odbiór własny'}
                         </p>
                         <p className='address' style={{display: this.props.personalDetails.delivery === 'delivery' ? 'block' : 'none'}}>
-                            <strong>
-                                Adres dostawy:
-                            </strong>
+                            <strong>Adres dostawy:  </strong>
                             {this.props.personalDetails.address}
                         </p>
                         <p className='request'>
-                            <strong>
-                                Komentarz:
-                            </strong>
+                            <strong>Komentarz:  </strong>
                             {this.props.personalDetails.request}
                         </p>
                     </div>
@@ -98,17 +81,22 @@ export default class Resume extends React.Component{
                             </thead>
                             <tbody>
                                 {orderedMenu}
+                            </tbody>
+                            <tfoot>
                                 <tr>
-                                    <td style={{colspan: '2'}}>
+                                    <td>
                                         Suma całkowita:
                                     </td>
-                                    <td>
-                                        {sum}
+                                    <td colSpan = '2'>
+                                        {sum} zł
                                     </td>
                                 </tr>
-                            </tbody>
+                            </tfoot>
                         </table>
                     </div>
+                </div>
+                <div className='resumeSend'>
+                    <button className='send'>wyślij</button>
                 </div>
             </div>
         )

@@ -127,15 +127,15 @@ export default class OrderDetails extends React.Component{
                         <input id='delivery' name='deliveryR' type='radio' value='delivery' checked={this.props.deliveryR === 'delivery'} onChange={this.handleChangeRadio}/>
                         <label className='labelCheckbox' htmlFor='delivery'>
                             Dowóz
+                            <span className='optional'>
+                                (dodatkowo płatne)
+                            </span>
                         </label>
                     </div>
                     <div className='checkbox-container'>
                         <input id='pickUp' name='deliveryR' type='radio' value='pickUp' checked={this.props.deliveryR === 'pickUp'} onChange={this.handleChangeRadio}/>
                         <label className='labelCheckbox' htmlFor='pickUp'>
                             Odbiór własny
-                            <span className='optional'>
-                                (dodatkowo płatne)
-                            </span>
                         </label>
                     </div>
                 </div>
@@ -153,9 +153,8 @@ export default class OrderDetails extends React.Component{
                 </div>
                 <div className='special_requests'>
                     <label className='label' htmlFor='request'>
-                        Dodatkowe informacje:
-                        <span className='optional'>
-                            alergie na składniki, dodatkowy sprzęt serwisowy, komentarze ...
+                        Dodatkowe informacje:  <span className='optional'>
+                              alergie na składniki, dodatkowy sprzęt serwisowy, komentarze ...
                         </span>
                     </label>
                     <textarea className='textarea_form' id='request' value={this.props.request} onChange={this.handleChangeText}/>
